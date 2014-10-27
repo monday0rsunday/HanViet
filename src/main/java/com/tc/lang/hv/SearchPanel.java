@@ -44,7 +44,6 @@ public class SearchPanel extends JPanel implements SelectedInfoChangeListener {
 	private JTextField searchField;
 	private JComboBox searchBox;
 	private JComboBox bochuOptBox;
-	private JComboBox optBox;
 	private JTextPane nghiaLabel;
 	private JTextPane binhamLabel;
 	private JTextPane hanvietLabel;
@@ -116,9 +115,6 @@ public class SearchPanel extends JPanel implements SelectedInfoChangeListener {
 
 		bochuOptBox = new JComboBox(sbModel);
 		bochuOptBox.setMaximumSize(new Dimension(36, 100));
-		optBox = new JComboBox(new String[] { "Tất Cả", "Hán Việt", "Nghĩa",
-				"Bính Âm", "Phồn/Giản Thể" });
-		optBox.setMaximumSize(new Dimension(36, 100));
 
 		hanvietLabel = new JTextPane();
 		// hanvietLabel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 20));
@@ -267,8 +263,6 @@ public class SearchPanel extends JPanel implements SelectedInfoChangeListener {
 		topBoxPan.add(searchBox);
 		topBoxPan.add(Box.createHorizontalStrut(5));
 		topBoxPan.add(bochuOptBox);
-		topBoxPan.add(Box.createHorizontalStrut(5));
-		topBoxPan.add(optBox);
 		searchField.setMaximumSize(new Dimension(Integer.MAX_VALUE, searchField
 				.getMinimumSize().height));
 

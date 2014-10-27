@@ -8,8 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DatabaseControl implements SearchModeChangeListener,
-		SearchBochuChangeListener {
+public class DatabaseControl implements SearchBochuChangeListener {
 
 	Connection connection;
 
@@ -144,22 +143,6 @@ public class DatabaseControl implements SearchModeChangeListener,
 			e.printStackTrace();
 		}
 		spModel.setSound(sound);
-	}
-
-	@Override
-	public void searchModeChanged(SearchModeChangeEvent evt) {
-		switch (evt.getSearchMode()) {
-		case BINHAM:
-			break;
-		case PHONTHE:
-			break;
-		case GIANTHE:
-			break;
-		case HANVIET:
-			break;
-		case TATCA:
-			break;
-		}
 	}
 
 	@Override

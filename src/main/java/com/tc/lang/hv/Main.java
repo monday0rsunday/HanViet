@@ -27,7 +27,6 @@ public class Main {
 				SoundPlayControl spControl = new SoundPlayControl();
 				spModel.addSoundChangeListener(spControl);
 
-				SearchModeModel smModel = new SearchModeModel();
 				SearchBochuModel sbModel = new SearchBochuModel();
 				SelectedInfoModel siModel = new SelectedInfoModel();
 				SearchModel sModel = new SearchModel();
@@ -35,7 +34,6 @@ public class Main {
 						sModel, siModel, spModel);
 				SearchPanel searchPan = new SearchPanel(sModel, sbModel,
 						dbControl);
-				smModel.addSearchModeChangeListener(dbControl);
 				sbModel.addSearchBochuChangeListener(dbControl);
 				siModel.addSelectedInfoChangeListener(searchPan);
 
