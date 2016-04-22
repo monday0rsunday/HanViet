@@ -5,8 +5,11 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.JTabbedPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
+
+import com.tc.lang.hv.dic.DictionaryPanel;
 
 public class Main {
 
@@ -36,6 +39,8 @@ public class Main {
 						dbControl);
 				sbModel.addSearchBochuChangeListener(dbControl);
 				siModel.addSelectedInfoChangeListener(searchPan);
+				
+				DictionaryPanel dicPan = new DictionaryPanel();
 
 				JMenuBar menuBar = new JMenuBar();
 				JMenu fMenu = new JMenu("Tệp tin");
@@ -46,7 +51,10 @@ public class Main {
 				JFrame mainFrame = new JFrame();
 				// layout main
 				mainFrame.setJMenuBar(menuBar);
-				mainFrame.add(searchPan, BorderLayout.CENTER);
+				JTabbedPane tabbedPane = new JTabbedPane();
+				tabbedPane.add(searchPan,"Tìm từ Hán Việt");
+				tabbedPane.add(dicPan,"Tra từ");
+				mainFrame.add(tabbedPane, BorderLayout.CENTER);
 				// setup main
 				mainFrame.setTitle("Từ điển Hán Việt");
 				mainFrame.setSize(600, 400);

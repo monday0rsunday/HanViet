@@ -26,6 +26,7 @@ import javax.swing.JLabel;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
+import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
@@ -200,35 +201,24 @@ public class SearchPanel extends JPanel implements SelectedInfoChangeListener {
 		});
 
 		int gridy = 0;
+		int ipadx = 11;
 		GridBagLayout gbLayout = new GridBagLayout();
 		JPanel cenPan = new JPanel(gbLayout);
 		GridBagConstraints constraints = new GridBagConstraints();
 		constraints.gridx = 0;
-		constraints.gridy = gridy;
-		constraints.gridwidth = 2;
-		constraints.weightx = 1.0;
-		// constraints.weighty = 1.0;
-		constraints.fill = GridBagConstraints.BOTH;
-		cenPan.add(phontheLabel, constraints);
-
-		// reset special
-		// constraints.fill = GridBagConstraints.NONE;
-		// constraints. = GridBagConstraints.
-		constraints.gridwidth = 1;
-		constraints.weightx = 0.0;
-		int ipadx = 11;
-
 		constraints.anchor = GridBagConstraints.BASELINE_LEADING;
 		constraints.gridx = 0;
-		constraints.gridy = ++gridy;
+		constraints.gridy = gridy;
 		constraints.ipadx = ipadx;
 		cenPan.add(new JLabel("Nghĩa:"), constraints);
 		constraints.gridx = 1;
-		constraints.gridy = 1;
+		constraints.weightx = 1.0;
+		constraints.fill = GridBagConstraints.BOTH;
 		// constraints.weighty = 1.0;
 		constraints.ipadx = 0;
 		cenPan.add(nghiaLabel, constraints);
-
+		constraints.weightx = 0.0;
+		constraints.fill = GridBagConstraints.NONE;
 		// row 2
 		constraints.gridx = 0;
 		constraints.gridy = ++gridy;
@@ -270,6 +260,8 @@ public class SearchPanel extends JPanel implements SelectedInfoChangeListener {
 		topPan.setLayout(new BoxLayout(topPan, BoxLayout.PAGE_AXIS));
 		topPan.add(searchField);
 		topPan.add(topBoxPan);
+		phontheLabel.setPreferredSize(new Dimension(Integer.MAX_VALUE, 192));
+		topPan.add(phontheLabel);
 		JScrollPane cenScrollPan = new JScrollPane(cenPan,
 				JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
 				JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
@@ -310,16 +302,17 @@ public class SearchPanel extends JPanel implements SelectedInfoChangeListener {
 				nghiaLabel.setText("<html><ol style='margin: 0;'>" + nghiaHtml
 						+ "</ol></html>");
 				hanvietLabel
-						.setText("<html><div style='margin: 0; padding: 0 0 -15px 0;'>"
+						.setText("<html><div style='margin: 0; padding: 0;'>"
 								+ info.getHanviet() + "</div></html>");
 				String binhamHtml = "";
 				for (String binham : info.getBinhams()) {
-					binhamHtml += "<li><a href='http://localhost/sound?pinyin="
-							+ binham + "'>" + binham + "</a></li>";
+					binhamHtml += "<a href='http://localhost/sound?pinyin="
+							+ binham + "'>" + binham
+							+ "</a><span>&nbsp;</span>";
 				}
 				binhamLabel
-						.setText("<html><ol style='margin: 0; display: inline; float: right;'>"
-								+ binhamHtml + "</ol></html>");
+						.setText("<html><div style='margin: 0; padding: 0;'>"
+								+ binhamHtml + "</div></html>");
 				if (info.getStroke() != null) {
 					try {
 						OutputStream os = new FileOutputStream(
