@@ -1,6 +1,7 @@
-package com.tc.lang.presentation.ui;
+package com.tc.lang.presentation;
 
 import com.tc.lang.application.DatabaseControl;
+import com.tc.lang.presentation.ui.*;
 
 import javax.swing.*;
 import java.awt.*;

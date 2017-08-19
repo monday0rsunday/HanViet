@@ -1,7 +1,5 @@
 package com.tc.lang.presentation.ui;
 
-import com.tc.lang.application.Info;
-
 import java.util.EventObject;
 
 public class SelectedInfoChangeEvent extends EventObject {

@@ -10,12 +10,12 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.DataLine;
 import javax.sound.sampled.SourceDataLine;
 
-public class SoundPlayControl implements SoundChangeListener, Runnable {
+public class SoundPlayer implements SoundChangeListener, Runnable {
 
 	private byte[] sound;
 	private Thread playThread;
 
-	public SoundPlayControl() {
+	public SoundPlayer() {
 
 	}
 

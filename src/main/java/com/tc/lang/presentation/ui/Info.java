@@ -1,4 +1,4 @@
-package com.tc.lang.application;
+package com.tc.lang.presentation.ui;
 
 public class Info {
 

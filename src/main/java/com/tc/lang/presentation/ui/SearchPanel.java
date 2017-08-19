@@ -1,7 +1,6 @@
 package com.tc.lang.presentation.ui;
 
 import com.tc.lang.application.DatabaseControl;
-import com.tc.lang.application.Info;
 
 import java.awt.BorderLayout;
 import java.awt.Desktop;
@@ -53,16 +52,16 @@ public class SearchPanel extends JPanel implements SelectedInfoChangeListener {
 	/**
 	 * SearchBoxModel
 	 */
-	private SearchModel sModel;
-	private SearchBochuModel sbModel;
+	private SearchModel searchModel;
+	private SearchBochuModel searchBochuModel;
 
-	private DatabaseControl dbControl;
+	private DatabaseControl databaseControl;
 
-	public SearchPanel(SearchModel sModel, SearchBochuModel sbModel,
-			DatabaseControl dbControl) {
-		this.sModel = sModel;
-		this.sbModel = sbModel;
-		this.dbControl = dbControl;
+	public SearchPanel(SearchModel searchModel, SearchBochuModel searchBochuModel,
+					   DatabaseControl databaseControl) {
+		this.searchModel = searchModel;
+		this.searchBochuModel = searchBochuModel;
+		this.databaseControl = databaseControl;
 		initComponents();
 	}
 
@@ -70,7 +69,7 @@ public class SearchPanel extends JPanel implements SelectedInfoChangeListener {
 		searchField = new JTextField();
 
 		searchBox = new JComboBox();
-		searchBox.setModel(sModel);
+		searchBox.setModel(searchModel);
 
 		searchField.addKeyListener(new KeyAdapter() {
 			String lastSearch = null;
@@ -82,7 +81,7 @@ public class SearchPanel extends JPanel implements SelectedInfoChangeListener {
 					searchBox.setSelectedIndex(0);
 				}
 				if (!searchField.getText().equals(lastSearch)) {
-					dbControl.findByText(searchField.getText());
+					databaseControl.findByText(searchField.getText());
 					SwingUtilities.invokeLater(new Runnable() {
 
 						@Override
@@ -109,13 +108,13 @@ public class SearchPanel extends JPanel implements SelectedInfoChangeListener {
 			@Override
 			public void itemStateChanged(ItemEvent e) {
 				if (e.getStateChange() == ItemEvent.SELECTED) {
-					dbControl.updateSelectedInfo(((SearchItem) e.getItem())
+					databaseControl.updateSelectedInfo(((SearchItem) e.getItem())
 							.getId());
 				}
 			}
 		});
 
-		bochuOptBox = new JComboBox(sbModel);
+		bochuOptBox = new JComboBox(searchBochuModel);
 		bochuOptBox.setMaximumSize(new Dimension(36, 100));
 
 		hanvietLabel = new JTextPane();
@@ -193,7 +192,7 @@ public class SearchPanel extends JPanel implements SelectedInfoChangeListener {
 						&& e.getEventType() == EventType.ACTIVATED) {
 					String query = e.getURL().getQuery();
 					if (query.startsWith("pinyin=")) {
-						dbControl.updateSound(query.substring(7));
+						databaseControl.updateSound(query.substring(7));
 					}
 
 				}

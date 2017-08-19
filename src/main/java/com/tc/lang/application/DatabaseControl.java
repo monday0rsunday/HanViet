@@ -1,11 +1,7 @@
 package com.tc.lang.application;
 
 import com.tc.lang.presentation.sound.SoundPlayModel;
-import com.tc.lang.presentation.ui.SearchBochuChangeEvent;
-import com.tc.lang.presentation.ui.SearchBochuChangeListener;
-import com.tc.lang.presentation.ui.SearchItem;
-import com.tc.lang.presentation.ui.SearchModel;
-import com.tc.lang.presentation.ui.SelectedInfoModel;
+import com.tc.lang.presentation.ui.*;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -21,11 +17,12 @@ public class DatabaseControl implements SearchBochuChangeListener
 	Connection connection;
 
 	private SearchModel searchModel;
-	private SelectedInfoModel siModel;
-	private SoundPlayModel spModel;
+	private SelectedInfoModel selectedInfoModel;
+	private SoundPlayModel soundPlayModel;
 
 	public DatabaseControl(String dbLoc, SearchModel searchModel,
-			SelectedInfoModel siModel, SoundPlayModel spModel) {
+						   SelectedInfoModel selectedInfoModel,
+						   SoundPlayModel soundPlayModel) {
 		try {
 			Class.forName("org.sqlite.JDBC");
 			connection = DriverManager.getConnection("jdbc:sqlite:" + dbLoc);
@@ -37,8 +34,8 @@ public class DatabaseControl implements SearchBochuChangeListener
 			e.printStackTrace();
 		}
 		this.searchModel = searchModel;
-		this.siModel = siModel;
-		this.spModel = spModel;
+		this.selectedInfoModel = selectedInfoModel;
+		this.soundPlayModel = soundPlayModel;
 	}
 
 	public void findByText(String sText) {
@@ -130,7 +127,7 @@ public class DatabaseControl implements SearchBochuChangeListener
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		siModel.setSelectedInfo(info);
+		selectedInfoModel.setSelectedInfo(info);
 	}
 
 	public void updateSound(String binham) {
@@ -150,7 +147,7 @@ public class DatabaseControl implements SearchBochuChangeListener
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		spModel.setSound(sound);
+		soundPlayModel.setSound(sound);
 	}
 
 	@Override
