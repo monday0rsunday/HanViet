@@ -1,4 +1,4 @@
-package com.tc.lang.hv.dic;
+package com.tc.lang.dic;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

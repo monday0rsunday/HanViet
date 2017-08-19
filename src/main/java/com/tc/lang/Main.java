@@ -1,4 +1,4 @@
-package com.tc.lang.hv;
+package com.tc.lang;
 
 import java.awt.BorderLayout;
 
@@ -9,7 +9,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
-import com.tc.lang.hv.dic.DictionaryPanel;
+import com.tc.lang.dic.DictionaryPanel;
 
 public class Main {
 

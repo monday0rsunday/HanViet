@@ -1,4 +1,4 @@
-package com.tc.lang.hv.dic;
+package com.tc.lang.dic;
 
 import java.io.BufferedReader;
 import java.io.File;

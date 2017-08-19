@@ -1,4 +1,4 @@
-package com.tc.lang.hv;
+package com.tc.lang;
 
 import java.awt.Component;
 import java.awt.event.ActionEvent;
