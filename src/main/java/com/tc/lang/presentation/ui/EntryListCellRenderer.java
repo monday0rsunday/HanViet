@@ -1,4 +1,4 @@
-package com.tc.lang.infrastructure.dic;
+package com.tc.lang.presentation.ui;
 
 import java.awt.Component;
 

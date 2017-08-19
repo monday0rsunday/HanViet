@@ -1,7 +1,6 @@
 package com.tc.lang.presentation.ui;
 
 import com.tc.lang.application.DatabaseControl;
-import com.tc.lang.infrastructure.dic.DictionaryPanel;
 
 import javax.swing.*;
 import java.awt.*;
