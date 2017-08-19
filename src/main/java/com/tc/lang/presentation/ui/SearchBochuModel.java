@@ -1,4 +1,4 @@
-package com.tc.lang;
+package com.tc.lang.presentation.ui;
 
 import javax.swing.DefaultComboBoxModel;
 

@@ -1,4 +1,7 @@
-package com.tc.lang;
+package com.tc.lang.presentation.ui;
+
+import com.tc.lang.application.DatabaseControl;
+import com.tc.lang.application.Info;
 
 import java.awt.BorderLayout;
 import java.awt.Desktop;

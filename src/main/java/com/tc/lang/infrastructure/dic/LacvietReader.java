@@ -1,4 +1,4 @@
-package com.tc.lang.dic;
+package com.tc.lang.infrastructure.dic;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -7,12 +7,12 @@ import java.io.InputStreamReader;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class CedictReader {
+public class LacvietReader {
 
 	private File file;
 	private BufferedReader br;
 
-	public CedictReader(String filePath) {
+	public LacvietReader(String filePath) {
 		file = new File(filePath);
 	}
 
@@ -25,8 +25,7 @@ public class CedictReader {
 		br.close();
 	}
 
-	static Pattern ptn = Pattern
-			.compile("([^\\s]+)\\s([^\\s]+)\\s\\[(.*)\\]\\s+(.*)");
+	static Pattern ptn = Pattern.compile("\\[(.*)\\]\\s+(.*)");
 
 	public Entry read() {
 		try {
@@ -35,14 +34,19 @@ public class CedictReader {
 				if (line.startsWith("#"))
 					continue;
 				Entry entry = new Entry();
-				Matcher mtc = ptn.matcher(line);
-				if (mtc.find()) {
-					entry.setPhonthe(mtc.group(1));
-					entry.setGianthe(mtc.group(2));
-					entry.setBinham(mtc.group(3).toLowerCase());
-					// entry.setHanviet(mtc.group(4));
-					entry.setNghia(mtc.group(4));
-					entry.setSource("cedict");
+				String[] ss = line.split("=");
+				entry.setPhonthe(ss[0]);
+				String[] means = ss[1].split("✚");
+				for (String mean : means) {
+					Matcher mtc = ptn.matcher(mean);
+					if (mtc.find()) {
+						entry.setBinham(Util.encodeAscii(Util.encode(mtc
+								.group(1).replace("'", "").replace("·", "")
+								.toLowerCase())));
+						// entry.setHanviet(mtc.group(4));
+						entry.setNghia(mtc.group(2));
+						entry.setSource("lacviet");
+					}
 				}
 				return entry;
 			}
@@ -56,7 +60,7 @@ public class CedictReader {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		CedictReader ois = new CedictReader("./dic/cedict_ts.u8");
+		LacvietReader ois = new LacvietReader("./dic/lacviet.txt");
 		Entry lr = null;
 		try {
 			ois.open();

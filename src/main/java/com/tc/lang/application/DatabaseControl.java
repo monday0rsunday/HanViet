@@ -1,4 +1,11 @@
-package com.tc.lang;
+package com.tc.lang.application;
+
+import com.tc.lang.presentation.sound.SoundPlayModel;
+import com.tc.lang.presentation.ui.SearchBochuChangeEvent;
+import com.tc.lang.presentation.ui.SearchBochuChangeListener;
+import com.tc.lang.presentation.ui.SearchItem;
+import com.tc.lang.presentation.ui.SearchModel;
+import com.tc.lang.presentation.ui.SelectedInfoModel;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,7 +15,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DatabaseControl implements SearchBochuChangeListener {
+public class DatabaseControl implements SearchBochuChangeListener
+{
 
 	Connection connection;
 

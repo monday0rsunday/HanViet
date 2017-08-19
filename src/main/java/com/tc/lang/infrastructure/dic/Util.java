@@ -1,4 +1,4 @@
-package com.tc.lang.dic;
+package com.tc.lang.infrastructure.dic;
 
 public class Util {
 

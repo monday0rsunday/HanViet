@@ -1,7 +1,6 @@
-package com.tc.lang.dic;
+package com.tc.lang.infrastructure.dic;
 
 import java.awt.BorderLayout;
-import java.awt.Window;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 

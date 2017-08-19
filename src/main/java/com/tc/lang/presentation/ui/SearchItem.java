@@ -1,4 +1,4 @@
-package com.tc.lang;
+package com.tc.lang.presentation.ui;
 
 public class SearchItem {
 

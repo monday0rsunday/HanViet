@@ -1,4 +1,6 @@
-package com.tc.lang;
+package com.tc.lang.presentation.ui;
+
+import com.tc.lang.application.Info;
 
 import java.util.EventObject;
 

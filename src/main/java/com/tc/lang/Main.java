@@ -9,7 +9,15 @@ import javax.swing.JTabbedPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
-import com.tc.lang.dic.DictionaryPanel;
+import com.tc.lang.application.DatabaseControl;
+import com.tc.lang.infrastructure.dic.DictionaryPanel;
+import com.tc.lang.presentation.sound.SoundPlayControl;
+import com.tc.lang.presentation.sound.SoundPlayModel;
+import com.tc.lang.presentation.ui.SearchBochuModel;
+import com.tc.lang.presentation.ui.SearchItem;
+import com.tc.lang.presentation.ui.SearchModel;
+import com.tc.lang.presentation.ui.SearchPanel;
+import com.tc.lang.presentation.ui.SelectedInfoModel;
 
 public class Main {
 
