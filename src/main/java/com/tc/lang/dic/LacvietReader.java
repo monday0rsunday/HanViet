@@ -60,7 +60,7 @@ public class LacvietReader {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		LacvietReader ois = new LacvietReader("./lacviet.txt");
+		LacvietReader ois = new LacvietReader("./dic/lacviet.txt");
 		Entry lr = null;
 		try {
 			ois.open();

@@ -33,7 +33,7 @@ public class Main {
 				SearchBochuModel sbModel = new SearchBochuModel();
 				SelectedInfoModel siModel = new SelectedInfoModel();
 				SearchModel sModel = new SearchModel();
-				DatabaseControl dbControl = new DatabaseControl("./chinese.db",
+				DatabaseControl dbControl = new DatabaseControl("./dic/chinese.db",
 						sModel, siModel, spModel);
 				SearchPanel searchPan = new SearchPanel(sModel, sbModel,
 						dbControl);

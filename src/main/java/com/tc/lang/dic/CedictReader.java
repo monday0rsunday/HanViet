@@ -56,7 +56,7 @@ public class CedictReader {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		CedictReader ois = new CedictReader("./cedict_ts.u8");
+		CedictReader ois = new CedictReader("./dic/cedict_ts.u8");
 		Entry lr = null;
 		try {
 			ois.open();
